@@ -5,15 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class test extends Model
+class shg_source_funding extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'name',
-        'email',
-        'password',
-        'created_at',
-        'updated_at'
+        'source_of_funding',
+        'description',
+        'created',
+        'created_by',
+        'updated',
+        'updated_by'
     ];
 }

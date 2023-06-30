@@ -21,7 +21,7 @@ return new class extends Migration
             $table->String('updatedBy', 50);
 
             $table->foreign('shg_application_id')->references('id')->on('shg_applications');
-            $table->foreign('bills_id')->references('id')->on('shg_bills');
+            // $table->foreign('bills_id')->references('id')->on('shg_bills');
         });
     }
 
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('shg_applications_bills');
     }
 };
