@@ -9,6 +9,8 @@ class shg_members extends Model
 {
     use HasFactory;
 
+    protected $table = 'shg_members';
+
     protected $fillable = [
         'client_id',
         'shg_id',

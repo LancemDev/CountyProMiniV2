@@ -9,6 +9,8 @@ class shg_category extends Model
 {
     use HasFactory;
 
+    protected $table = 'shg_category';
+
     protected $fillable = [
         'category_name',
         'description',

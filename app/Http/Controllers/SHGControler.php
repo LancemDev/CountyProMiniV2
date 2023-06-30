@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\shg_members;
+use App\Models\shg_applications;
+use App\Models\shg_application_bills;
+use App\Models\shg_docs;
 
 class SHGControler extends Controller
 {
@@ -11,7 +15,18 @@ class SHGControler extends Controller
      */
     public function index()
     {
-        //
+        $shg_members = shg_members::all();
+        $shg_applications = shg_applications::all();
+        $shg_application_bills = shg_application_bills::all();
+        $shg_docs = shg_docs::all();
+        // return view('shg.index');
+        return view('shg.index',
+        [
+            'shg_members' => $shg_members,
+            'shg_applications' => $shg_applications,
+            'shg_application_bills' => $shg_application_bills,
+            'shg_docs' => $shg_docs
+        ]);
     }
 
     /**

@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\test;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\SHGControler;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,3 +23,5 @@ Route::get('/', function () {
 Route::get('/',[Controller::class,'index']);
 
 Route::get('/test',[test::class,'index']);
+
+Route::get('/shg',[SHGControler::class,'index']);

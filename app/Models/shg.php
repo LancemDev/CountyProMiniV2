@@ -9,6 +9,8 @@ class shg extends Model
 {
     use HasFactory;
 
+    protected $table = 'shg';
+
     private $fillable = [
         'group_name',
         'group_number',

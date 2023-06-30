@@ -9,6 +9,8 @@ class shg_applications extends Model
 {
     use HasFactory;
 
+    protected $table = 'shg_applications';
+
     protected $fillable = [
         'shg_id',
         'apllication_type',

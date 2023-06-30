@@ -9,12 +9,14 @@ class shg_docs extends Model
 {
     use HasFactory;
 
-    private $fillable = [
+    protected $table = 'shg_docs';
+
+    protected $fillable = [
         'shg_id',
         'doc_id',
-        'created',
+        'created_at',
+        'updated_at',
         'created_by',
-        'updated',
         'updated_by'
     ];
 

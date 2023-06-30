@@ -9,6 +9,8 @@ class shg_member_positions extends Model
 {
     use HasFactory;
 
+    protected $table = 'shg_member_positions';
+
     protected $fillable = [
         'position_name',
         'description',
