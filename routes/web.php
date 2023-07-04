@@ -26,6 +26,8 @@ Route::get('/', function () {
 // Route::get('/shg_application_bills',[SHG_application_bills_Controller::class,'index']);
 // Route::get('/shg_application',[SHG_application_Controller::class,'index']);
 
-Route::get('/shg-category', [SHGCategoryController::class, 'index'])->name('shg-category.index');
-Route::get('/shg-category/create', [SHGCategoryController::class, 'create'])->name('shg-category.create');
-Route::post('/shg-category', [SHGCategoryController::class, 'store'])->name('shg-category.store');
+// Route::get('/shg-category', [SHGCategoryController::class, 'index'])->name('shg-category.index');
+// Route::get('/shg-category/create', [SHGCategoryController::class, 'create'])->name('shg-category.create');
+// Route::post('/shg-category', [SHGCategoryController::class, 'store'])->name('shg-category.store');
+
+Route::resource('shg_category', SHGCategoryController::class);

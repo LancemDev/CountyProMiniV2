@@ -34,7 +34,7 @@ class SHG_application_Controller extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(shg_application $shg_application)
+    public function show(shg_applications $shg_applications)
     {
         //
     }
