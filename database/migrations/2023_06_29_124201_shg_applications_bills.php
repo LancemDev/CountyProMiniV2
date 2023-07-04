@@ -11,7 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('shg_applications_bills', function(Blueprint $table){
+        if (Schema::hasTable('shg_application_bills')) {
+            return;
+        }
+        Schema::table('shg_application_bills', function(Blueprint $table){
             $table->bigIncrements('id');
             $table->unsignedBigInteger('shg_application_id');
             $table->unsignedBigInteger('bills_id');

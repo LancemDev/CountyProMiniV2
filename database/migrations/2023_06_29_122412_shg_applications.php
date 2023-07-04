@@ -11,6 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
+        if (Schema::hasTable('shg_applications')) {
+            return;
+        }
         Schema::table('shg_applications', function(Blueprint $table){
             $table->bigIncrements('id');
             $table->foreign('shg_id')->references('id')->on('shg');

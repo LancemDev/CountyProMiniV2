@@ -11,14 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('shg_source_funding', function(Blueprint $table){
+        if(Schema::hasTable('shg_category')){
+            return;
+        }
+        Schema::create('shg_category', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->String('source_funding', 100);
+            $table->String('category_name', 100);
             $table->text('description');
-            $table->dateTime('created');
-            $table->String('createdBy', 50);
-            $table->dateTime('updated');
-            $table->String('updatedBy', 50);
+            $table->String('created_by', 50)->default('admin');
+            $table->String('updated_by', 50)->default('admin');
+            $table->timestamps();
         });
     }
 
@@ -27,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('shg_source_funding');
+        Schema::dropIfExists('shg_category');
     }
 };

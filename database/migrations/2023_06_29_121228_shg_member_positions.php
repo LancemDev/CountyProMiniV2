@@ -11,6 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
+        if (Schema::hasTable('shg_member_positions')) {
+            return;
+        }
         Schema::create('shg_member_positions', function(Blueprint $table){
             $table->bigIncrements('id');
             $table->String('position_name', 100);

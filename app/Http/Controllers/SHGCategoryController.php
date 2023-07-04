@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\shg_category;
+use App\Models\ShgCategory;
 
 class SHGCategoryController extends Controller
 {
@@ -12,9 +12,9 @@ class SHGCategoryController extends Controller
      */
     public function index()
     {
-        $shg_category = shg_category::latest()->paginate(5);
+        $ShgCategory = ShgCategory::latest()->paginate(5);
 
-        return view('shg_category.index', compact('shg_category'))->with('i', (request()->input('page', 1) - 1) * 5);
+        return view('shg_category.index', compact('ShgCategory'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     /**
@@ -30,24 +30,22 @@ class SHGCategoryController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'category_name' => 'required',
-            'description' => 'required',
-        ]);
+        // $request->validate([
+        //     'category_name' => 'required',
+        //     'description' => 'required',
+        // ]);
 
         // This is how you can insert data into database
         // If successfull, it will echo "SHG Category created successfully."
-        if (shg_category::create($request->all())) {
-            return redirect()->route('shg-category.index')->with('success', 'SHG Category created successfully.');
-        }else {
-            return redirect()->route('shg-category.index')->with('error', 'SHG Category created successfully.');
-        }
+        ShgCategory::create($request->all());
+
+        return redirect()->route('shg_category.index')->with('success', 'SHG Category created successfully.');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(shg_category $shg_category)
+    public function show(ShgCategory $shg_category)
     {
         return view('shg_category.show', compact('shg_category'));
     }
@@ -55,7 +53,7 @@ class SHGCategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(shg_category $shg_category)
+    public function edit(ShgCategory $shg_category)
     {
         return view('shg_category.edit', compact('shg_category'));
     }
@@ -63,25 +61,25 @@ class SHGCategoryController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, shg_category $shg_category)
+    public function update(Request $request, ShgCategory $shg_category)
     {
         $request->validate([
             'category_name' => 'required',
-            'category_description' => 'required',
+            'description' => 'required',
         ]);
         
         $shg_category->update($request->all());
 
-        return redirect()->route('shg-category.index')->with('success', 'SHG Category updated successfully.');
+        return redirect()->route('shg_category.index')->with('success', 'SHG Category updated successfully.');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(shg_category $shg_category)
+    public function destroy(ShgCategory $shg_category)
     {
         $shg_category->delete();
 
-        return redirect()->route('shg-category.index')->with('success', 'SHG Category deleted successfully.');
+        return redirect()->route('shg_category.index')->with('success', 'SHG Category deleted successfully.');
     }
 }
