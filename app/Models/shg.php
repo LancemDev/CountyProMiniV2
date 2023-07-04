@@ -11,7 +11,7 @@ class shg extends Model
 
     protected $table = 'shg';
 
-    private $fillable = [
+    protected $fillable = [
         'group_name',
         'group_number',
         'email_address',

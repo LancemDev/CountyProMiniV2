@@ -3,30 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\shg_members;
-use App\Models\shg_applications;
-use App\Models\shg_application_bills;
-use App\Models\shg_docs;
+use App\Models\shg_category;
 
-class SHGControler extends Controller
+class SHGCategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $shg_members = shg_members::all();
-        $shg_applications = shg_applications::all();
-        $shg_application_bills = shg_application_bills::all();
-        $shg_docs = shg_docs::all();
-        // return view('shg.index');
-        return view('shg.index',
-        [
-            'shg_members' => $shg_members,
-            'shg_applications' => $shg_applications,
-            'shg_application_bills' => $shg_application_bills,
-            'shg_docs' => $shg_docs
-        ]);
+        return view('shg-category.index');
     }
 
     /**
@@ -34,7 +20,7 @@ class SHGControler extends Controller
      */
     public function create()
     {
-        //
+        return view('shg-category.create');
     }
 
     /**
@@ -42,7 +28,20 @@ class SHGControler extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            'category_name' => 'required',
+            'category_description' => 'required',
+        ]);
+
+        // This is how you can insert data into database
+        // If successfull, it will echo "SHG Category created successfully."
+        if (shg_category::create($data)) {
+            return redirect()->route('shg-category.index')->with('success', 'SHG Category created successfully.');
+        }else {
+            return redirect()->route('shg-category.index')->with('error', 'SHG Category created successfully.');
+        }
+
+        return redirect()->route('shg-category.index')->with('success', 'SHG Category created successfully.');
     }
 
     /**
