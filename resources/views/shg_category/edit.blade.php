@@ -32,25 +32,25 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Category Name:</strong>
-                    <input type="text" name="category_name" class="form-control" placeholder="Category Name">
+                    <input type="text" name="category_name" class="form-control" placeholder="Category Name" value=" {{old('category_name', $shg_category->category_name)}} ">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Detail:</strong>
-                    <input type="text" class="form-control" name="description" placeholder="Description"></textarea>
+                    <input type="text" class="form-control" name="description" placeholder="Description" value=" {{old('description', $shg_category->description) }}">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Created by</strong>
-                    <input type="text" name="created_by" class="form-control" placeholder="Created By">
+                    <input type="text" name="created_by" class="form-control" placeholder="Created By" value="  {{old('created_by', $shg_category->created_by) }}">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Updated By:</strong>
-                    <input type="text" name="updated_by" class="form-control" placeholder="Updated By">
+                    <input type="text" name="updated_by" class="form-control" placeholder="Updated By" value=" {{old('updated_by', $shg_category->updated_by)}} ">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
